@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.PurchaseMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Purchase" >
+    <result column="book_id" property="bookId" jdbcType="INTEGER" />
+    <result column="value" property="value" jdbcType="INTEGER" />
+    <result column="pur_time" property="purTime" jdbcType="DATE" />
+    <result column="total" property="total" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Purchase" >
+    insert into Purchase (book_id, value, pur_time, 
+      total)
+    values (#{bookId,jdbcType=INTEGER}, #{value,jdbcType=INTEGER}, #{purTime,jdbcType=DATE}, 
+      #{total,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Purchase" >
+    insert into Purchase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        book_id,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+      <if test="purTime != null" >
+        pur_time,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=INTEGER},
+      </if>
+      <if test="purTime != null" >
+        #{purTime,jdbcType=DATE},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

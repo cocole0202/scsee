@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.ViolationMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Violation" >
+    <result column="cand_id" property="candId" jdbcType="INTEGER" />
+    <result column="tick_id" property="tickId" jdbcType="INTEGER" />
+    <result column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="degree" property="degree" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Violation" >
+    insert into Violation (cand_id, tick_id, room_id, 
+      degree)
+    values (#{candId,jdbcType=INTEGER}, #{tickId,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}, 
+      #{degree,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Violation" >
+    insert into Violation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="candId != null" >
+        cand_id,
+      </if>
+      <if test="tickId != null" >
+        tick_id,
+      </if>
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="degree != null" >
+        degree,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="candId != null" >
+        #{candId,jdbcType=INTEGER},
+      </if>
+      <if test="tickId != null" >
+        #{tickId,jdbcType=INTEGER},
+      </if>
+      <if test="roomId != null" >
+        #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.CandidateMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Candidate" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="id_num" property="idNum" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mail" property="mail" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="token" property="token" jdbcType="CHAR" />
+    <result column="expired_date" property="expiredDate" jdbcType="DATE" />
+    <result column="old_name" property="oldName" jdbcType="VARCHAR" />
+    <result column="ethnic" property="ethnic" jdbcType="VARCHAR" />
+    <result column="poli_status" property="poliStatus" jdbcType="VARCHAR" />
+    <result column="acc_loc" property="accLoc" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="VARCHAR" />
+    <result column="cert_type" property="certType" jdbcType="VARCHAR" />
+    <result column="cert_num" property="certNum" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="zip_code" property="zipCode" jdbcType="INTEGER" />
+    <result column="mail_addr" property="mailAddr" jdbcType="VARCHAR" />
+    <result column="recipient" property="recipient" jdbcType="VARCHAR" />
+    <result column="career" property="career" jdbcType="VARCHAR" />
+    <result column="employer" property="employer" jdbcType="VARCHAR" />
+    <result column="work_addr" property="workAddr" jdbcType="VARCHAR" />
+    <result column="work_type" property="workType" jdbcType="VARCHAR" />
+    <result column="exam_type" property="examType" jdbcType="VARCHAR" />
+    <result column="exam_major" property="examMajor" jdbcType="VARCHAR" />
+    <result column="regi_meth" property="regiMeth" jdbcType="VARCHAR" />
+    <result column="regi_loc" property="regiLoc" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Candidate" >
+    insert into Candidate (id, id_num, name, 
+      phone, mail, password, 
+      gender, token, expired_date, old_name, 
+      ethnic, poli_status, acc_loc, 
+      origin, cert_type, cert_num, 
+      birthday, education, zip_code, 
+      mail_addr, recipient, career, 
+      employer, work_addr, work_type, 
+      exam_type, exam_major, regi_meth, 
+      regi_loc)
+    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=BIT}, #{token,jdbcType=CHAR}, #{expiredDate,jdbcType=DATE}, #{oldName,jdbcType=VARCHAR}, 
+      #{ethnic,jdbcType=VARCHAR}, #{poliStatus,jdbcType=VARCHAR}, #{accLoc,jdbcType=VARCHAR}, 
+      #{origin,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{certNum,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE}, #{education,jdbcType=VARCHAR}, #{zipCode,jdbcType=INTEGER}, 
+      #{mailAddr,jdbcType=VARCHAR}, #{recipient,jdbcType=VARCHAR}, #{career,jdbcType=VARCHAR}, 
+      #{employer,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, 
+      #{examType,jdbcType=VARCHAR}, #{examMajor,jdbcType=VARCHAR}, #{regiMeth,jdbcType=VARCHAR}, 
+      #{regiLoc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Candidate" >
+    insert into Candidate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="idNum != null" >
+        id_num,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="mail != null" >
+        mail,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="expiredDate != null" >
+        expired_date,
+      </if>
+      <if test="oldName != null" >
+        old_name,
+      </if>
+      <if test="ethnic != null" >
+        ethnic,
+      </if>
+      <if test="poliStatus != null" >
+        poli_status,
+      </if>
+      <if test="accLoc != null" >
+        acc_loc,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="certType != null" >
+        cert_type,
+      </if>
+      <if test="certNum != null" >
+        cert_num,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="zipCode != null" >
+        zip_code,
+      </if>
+      <if test="mailAddr != null" >
+        mail_addr,
+      </if>
+      <if test="recipient != null" >
+        recipient,
+      </if>
+      <if test="career != null" >
+        career,
+      </if>
+      <if test="employer != null" >
+        employer,
+      </if>
+      <if test="workAddr != null" >
+        work_addr,
+      </if>
+      <if test="workType != null" >
+        work_type,
+      </if>
+      <if test="examType != null" >
+        exam_type,
+      </if>
+      <if test="examMajor != null" >
+        exam_major,
+      </if>
+      <if test="regiMeth != null" >
+        regi_meth,
+      </if>
+      <if test="regiLoc != null" >
+        regi_loc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="idNum != null" >
+        #{idNum,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=CHAR},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=DATE},
+      </if>
+      <if test="oldName != null" >
+        #{oldName,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null" >
+        #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="poliStatus != null" >
+        #{poliStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="accLoc != null" >
+        #{accLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNum != null" >
+        #{certNum,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null" >
+        #{zipCode,jdbcType=INTEGER},
+      </if>
+      <if test="mailAddr != null" >
+        #{mailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="recipient != null" >
+        #{recipient,jdbcType=VARCHAR},
+      </if>
+      <if test="career != null" >
+        #{career,jdbcType=VARCHAR},
+      </if>
+      <if test="employer != null" >
+        #{employer,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null" >
+        #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="examType != null" >
+        #{examType,jdbcType=VARCHAR},
+      </if>
+      <if test="examMajor != null" >
+        #{examMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="regiMeth != null" >
+        #{regiMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="regiLoc != null" >
+        #{regiLoc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

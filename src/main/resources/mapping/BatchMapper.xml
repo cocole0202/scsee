@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.BatchMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Batch" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="exam_time" property="examTime" jdbcType="DATE" />
+    <result column="cand_limit" property="candLimit" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, exam_time, cand_limit
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Batch
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Batch
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.scuse.entity.Batch" >
+    insert into Batch (id, exam_time, cand_limit
+      )
+    values (#{id,jdbcType=INTEGER}, #{examTime,jdbcType=DATE}, #{candLimit,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Batch" >
+    insert into Batch
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="examTime != null" >
+        exam_time,
+      </if>
+      <if test="candLimit != null" >
+        cand_limit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="examTime != null" >
+        #{examTime,jdbcType=DATE},
+      </if>
+      <if test="candLimit != null" >
+        #{candLimit,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Batch" >
+    update Batch
+    <set >
+      <if test="examTime != null" >
+        exam_time = #{examTime,jdbcType=DATE},
+      </if>
+      <if test="candLimit != null" >
+        cand_limit = #{candLimit,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scuse.entity.Batch" >
+    update Batch
+    set exam_time = #{examTime,jdbcType=DATE},
+      cand_limit = #{candLimit,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

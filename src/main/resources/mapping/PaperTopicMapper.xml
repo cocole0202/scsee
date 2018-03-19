@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.PaperTopicMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.PaperTopic" >
+    <result column="paper_id" property="paperId" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="scores" property="scores" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.PaperTopic" >
+    insert into PaperTopic (paper_id, type_id, number, 
+      scores)
+    values (#{paperId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{scores,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.PaperTopic" >
+    insert into PaperTopic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paperId != null" >
+        paper_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="scores != null" >
+        scores,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paperId != null" >
+        #{paperId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="scores != null" >
+        #{scores,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

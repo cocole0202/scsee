@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.TopicBankMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.TopicBank" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mjr_id" property="mjrId" jdbcType="INTEGER" />
+    <result column="crs_id" property="crsId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mjr_id, crs_id, number
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TopicBank
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TopicBank
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.scuse.entity.TopicBank" >
+    insert into TopicBank (id, mjr_id, crs_id, 
+      number)
+    values (#{id,jdbcType=INTEGER}, #{mjrId,jdbcType=INTEGER}, #{crsId,jdbcType=INTEGER}, 
+      #{number,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.TopicBank" >
+    insert into TopicBank
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mjrId != null" >
+        mjr_id,
+      </if>
+      <if test="crsId != null" >
+        crs_id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mjrId != null" >
+        #{mjrId,jdbcType=INTEGER},
+      </if>
+      <if test="crsId != null" >
+        #{crsId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.TopicBank" >
+    update TopicBank
+    <set >
+      <if test="mjrId != null" >
+        mjr_id = #{mjrId,jdbcType=INTEGER},
+      </if>
+      <if test="crsId != null" >
+        crs_id = #{crsId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scuse.entity.TopicBank" >
+    update TopicBank
+    set mjr_id = #{mjrId,jdbcType=INTEGER},
+      crs_id = #{crsId,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

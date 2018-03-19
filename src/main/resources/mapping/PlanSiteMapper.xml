@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.PlanSiteMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.PlanSite" >
+    <result column="pln_id" property="plnId" jdbcType="INTEGER" />
+    <result column="site_id" property="siteId" jdbcType="INTEGER" />
+    <result column="cand_limit" property="candLimit" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.PlanSite" >
+    insert into PlanSite (pln_id, site_id, cand_limit
+      )
+    values (#{plnId,jdbcType=INTEGER}, #{siteId,jdbcType=INTEGER}, #{candLimit,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.PlanSite" >
+    insert into PlanSite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="plnId != null" >
+        pln_id,
+      </if>
+      <if test="siteId != null" >
+        site_id,
+      </if>
+      <if test="candLimit != null" >
+        cand_limit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="plnId != null" >
+        #{plnId,jdbcType=INTEGER},
+      </if>
+      <if test="siteId != null" >
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="candLimit != null" >
+        #{candLimit,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

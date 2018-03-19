@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.MajorMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Major" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="cust_code" property="custCode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="credit" property="credit" jdbcType="INTEGER" />
+    <result column="approve" property="approve" jdbcType="BIT" />
+    <result column="appr_time" property="apprTime" jdbcType="DATE" />
+    <result column="appr_code" property="apprCode" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="exam_meth" property="examMeth" jdbcType="VARCHAR" />
+    <result column="code_type" property="codeType" jdbcType="VARCHAR" />
+    <result column="nature" property="nature" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="DATE" />
+    <result column="start_doc" property="startDoc" jdbcType="VARCHAR" />
+    <result column="unified" property="unified" jdbcType="BIT" />
+    <result column="main_clg" property="mainClg" jdbcType="VARCHAR" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="end_doc" property="endDoc" jdbcType="VARCHAR" />
+    <result column="end_info" property="endInfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, cust_code, name, credit, approve, appr_time, appr_code, level, type, exam_meth, 
+    code_type, nature, start_time, start_doc, unified, main_clg, subject, end_time, end_doc, 
+    end_info
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Major
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Major
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.scuse.entity.Major" >
+    insert into Major (id, code, cust_code, 
+      name, credit, approve, 
+      appr_time, appr_code, level, 
+      type, exam_meth, code_type, 
+      nature, start_time, start_doc, 
+      unified, main_clg, subject, 
+      end_time, end_doc, end_info
+      )
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{custCode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{credit,jdbcType=INTEGER}, #{approve,jdbcType=BIT}, 
+      #{apprTime,jdbcType=DATE}, #{apprCode,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{examMeth,jdbcType=VARCHAR}, #{codeType,jdbcType=VARCHAR}, 
+      #{nature,jdbcType=VARCHAR}, #{startTime,jdbcType=DATE}, #{startDoc,jdbcType=VARCHAR}, 
+      #{unified,jdbcType=BIT}, #{mainClg,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, 
+      #{endTime,jdbcType=DATE}, #{endDoc,jdbcType=VARCHAR}, #{endInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Major" >
+    insert into Major
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="custCode != null" >
+        cust_code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="credit != null" >
+        credit,
+      </if>
+      <if test="approve != null" >
+        approve,
+      </if>
+      <if test="apprTime != null" >
+        appr_time,
+      </if>
+      <if test="apprCode != null" >
+        appr_code,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="examMeth != null" >
+        exam_meth,
+      </if>
+      <if test="codeType != null" >
+        code_type,
+      </if>
+      <if test="nature != null" >
+        nature,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="startDoc != null" >
+        start_doc,
+      </if>
+      <if test="unified != null" >
+        unified,
+      </if>
+      <if test="mainClg != null" >
+        main_clg,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="endDoc != null" >
+        end_doc,
+      </if>
+      <if test="endInfo != null" >
+        end_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="custCode != null" >
+        #{custCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="approve != null" >
+        #{approve,jdbcType=BIT},
+      </if>
+      <if test="apprTime != null" >
+        #{apprTime,jdbcType=DATE},
+      </if>
+      <if test="apprCode != null" >
+        #{apprCode,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="examMeth != null" >
+        #{examMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="codeType != null" >
+        #{codeType,jdbcType=VARCHAR},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=DATE},
+      </if>
+      <if test="startDoc != null" >
+        #{startDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="unified != null" >
+        #{unified,jdbcType=BIT},
+      </if>
+      <if test="mainClg != null" >
+        #{mainClg,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=DATE},
+      </if>
+      <if test="endDoc != null" >
+        #{endDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="endInfo != null" >
+        #{endInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Major" >
+    update Major
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="custCode != null" >
+        cust_code = #{custCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="approve != null" >
+        approve = #{approve,jdbcType=BIT},
+      </if>
+      <if test="apprTime != null" >
+        appr_time = #{apprTime,jdbcType=DATE},
+      </if>
+      <if test="apprCode != null" >
+        appr_code = #{apprCode,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="examMeth != null" >
+        exam_meth = #{examMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="codeType != null" >
+        code_type = #{codeType,jdbcType=VARCHAR},
+      </if>
+      <if test="nature != null" >
+        nature = #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=DATE},
+      </if>
+      <if test="startDoc != null" >
+        start_doc = #{startDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="unified != null" >
+        unified = #{unified,jdbcType=BIT},
+      </if>
+      <if test="mainClg != null" >
+        main_clg = #{mainClg,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=DATE},
+      </if>
+      <if test="endDoc != null" >
+        end_doc = #{endDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="endInfo != null" >
+        end_info = #{endInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scuse.entity.Major" >
+    update Major
+    set code = #{code,jdbcType=VARCHAR},
+      cust_code = #{custCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      credit = #{credit,jdbcType=INTEGER},
+      approve = #{approve,jdbcType=BIT},
+      appr_time = #{apprTime,jdbcType=DATE},
+      appr_code = #{apprCode,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      exam_meth = #{examMeth,jdbcType=VARCHAR},
+      code_type = #{codeType,jdbcType=VARCHAR},
+      nature = #{nature,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=DATE},
+      start_doc = #{startDoc,jdbcType=VARCHAR},
+      unified = #{unified,jdbcType=BIT},
+      main_clg = #{mainClg,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      end_time = #{endTime,jdbcType=DATE},
+      end_doc = #{endDoc,jdbcType=VARCHAR},
+      end_info = #{endInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.RegisterMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Register" >
+    <result column="cand_id" property="candId" jdbcType="INTEGER" />
+    <result column="pln_id" property="plnId" jdbcType="INTEGER" />
+    <result column="sit_id" property="sitId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Register" >
+    insert into Register (cand_id, pln_id, sit_id, 
+      status)
+    values (#{candId,jdbcType=INTEGER}, #{plnId,jdbcType=INTEGER}, #{sitId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Register" >
+    insert into Register
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="candId != null" >
+        cand_id,
+      </if>
+      <if test="plnId != null" >
+        pln_id,
+      </if>
+      <if test="sitId != null" >
+        sit_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="candId != null" >
+        #{candId,jdbcType=INTEGER},
+      </if>
+      <if test="plnId != null" >
+        #{plnId,jdbcType=INTEGER},
+      </if>
+      <if test="sitId != null" >
+        #{sitId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

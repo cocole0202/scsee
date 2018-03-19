@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Course" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="eng_name" property="engName" jdbcType="VARCHAR" />
+    <result column="credit" property="credit" jdbcType="INTEGER" />
+    <result column="nature" property="nature" jdbcType="VARCHAR" />
+    <result column="exam_meth" property="examMeth" jdbcType="VARCHAR" />
+    <result column="paper_meth" property="paperMeth" jdbcType="VARCHAR" />
+    <result column="outline" property="outline" jdbcType="VARCHAR" />
+    <result column="book_id" property="bookId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, code, eng_name, credit, nature, exam_meth, paper_meth, outline, book_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Course
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Course
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.scuse.entity.Course" >
+    insert into Course (id, name, code, 
+      eng_name, credit, nature, 
+      exam_meth, paper_meth, outline, 
+      book_id)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{engName,jdbcType=VARCHAR}, #{credit,jdbcType=INTEGER}, #{nature,jdbcType=VARCHAR}, 
+      #{examMeth,jdbcType=VARCHAR}, #{paperMeth,jdbcType=VARCHAR}, #{outline,jdbcType=VARCHAR}, 
+      #{bookId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Course" >
+    insert into Course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="engName != null" >
+        eng_name,
+      </if>
+      <if test="credit != null" >
+        credit,
+      </if>
+      <if test="nature != null" >
+        nature,
+      </if>
+      <if test="examMeth != null" >
+        exam_meth,
+      </if>
+      <if test="paperMeth != null" >
+        paper_meth,
+      </if>
+      <if test="outline != null" >
+        outline,
+      </if>
+      <if test="bookId != null" >
+        book_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="engName != null" >
+        #{engName,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="examMeth != null" >
+        #{examMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="paperMeth != null" >
+        #{paperMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="outline != null" >
+        #{outline,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null" >
+        #{bookId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Course" >
+    update Course
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="engName != null" >
+        eng_name = #{engName,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        nature = #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="examMeth != null" >
+        exam_meth = #{examMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="paperMeth != null" >
+        paper_meth = #{paperMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="outline != null" >
+        outline = #{outline,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null" >
+        book_id = #{bookId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scuse.entity.Course" >
+    update Course
+    set name = #{name,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      eng_name = #{engName,jdbcType=VARCHAR},
+      credit = #{credit,jdbcType=INTEGER},
+      nature = #{nature,jdbcType=VARCHAR},
+      exam_meth = #{examMeth,jdbcType=VARCHAR},
+      paper_meth = #{paperMeth,jdbcType=VARCHAR},
+      outline = #{outline,jdbcType=VARCHAR},
+      book_id = #{bookId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

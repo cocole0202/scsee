@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Admin" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="id_num" property="idNum" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mail" property="mail" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="token" property="token" jdbcType="CHAR" />
+    <result column="expired_date" property="expiredDate" jdbcType="DATE" />
+    <result column="job_num" property="jobNum" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="employer" property="employer" jdbcType="VARCHAR" />
+    <result column="doc_url" property="docUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Admin" >
+    insert into Admin (id, id_num, name, 
+      phone, mail, password, 
+      gender, token, expired_date, job_num, 
+      location, employer, doc_url
+      )
+    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=BIT}, #{token,jdbcType=CHAR}, #{expiredDate,jdbcType=DATE}, #{jobNum,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{employer,jdbcType=VARCHAR}, #{docUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Admin" >
+    insert into Admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="idNum != null" >
+        id_num,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="mail != null" >
+        mail,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="expiredDate != null" >
+        expired_date,
+      </if>
+      <if test="jobNum != null" >
+        job_num,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="employer != null" >
+        employer,
+      </if>
+      <if test="docUrl != null" >
+        doc_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="idNum != null" >
+        #{idNum,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=CHAR},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=DATE},
+      </if>
+      <if test="jobNum != null" >
+        #{jobNum,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="employer != null" >
+        #{employer,jdbcType=VARCHAR},
+      </if>
+      <if test="docUrl != null" >
+        #{docUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

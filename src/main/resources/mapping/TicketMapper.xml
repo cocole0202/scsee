@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scuse.mapper.TicketMapper" >
+  <resultMap id="BaseResultMap" type="com.scuse.entity.Ticket" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="cand_id" property="candId" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.scuse.entity.Ticket" >
+    insert into Ticket (id, cand_id, valid
+      )
+    values (#{id,jdbcType=INTEGER}, #{candId,jdbcType=INTEGER}, #{valid,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.scuse.entity.Ticket" >
+    insert into Ticket
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="candId != null" >
+        cand_id,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="candId != null" >
+        #{candId,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
