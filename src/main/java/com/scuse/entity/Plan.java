@@ -13,7 +13,7 @@ public class Plan {
 
     private Date examTime;
 
-    private Integer hours;
+    private Float hours;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class Plan {
         this.examTime = examTime;
     }
 
-    public Integer getHours() {
+    public Float getHours() {
         return hours;
     }
 
-    public void setHours(Integer hours) {
+    public void setHours(Float hours) {
         this.hours = hours;
     }
 }

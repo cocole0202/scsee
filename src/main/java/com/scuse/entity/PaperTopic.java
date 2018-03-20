@@ -3,11 +3,9 @@ package com.scuse.entity;
 public class PaperTopic {
     private Integer paperId;
 
-    private Integer typeId;
+    private Integer topicId;
 
-    private Integer number;
-
-    private Integer scores;
+    private Float score;
 
     public Integer getPaperId() {
         return paperId;
@@ -17,27 +15,19 @@ public class PaperTopic {
         this.paperId = paperId;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public Integer getTopicId() {
+        return topicId;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setTopicId(Integer topicId) {
+        this.topicId = topicId;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Float getScore() {
+        return score;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Integer getScores() {
-        return scores;
-    }
-
-    public void setScores(Integer scores) {
-        this.scores = scores;
+    public void setScore(Float score) {
+        this.score = score;
     }
 }

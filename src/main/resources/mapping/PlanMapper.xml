@@ -7,7 +7,7 @@
     <result column="crs_id" property="crsId" jdbcType="INTEGER" />
     <result column="bat_id" property="batId" jdbcType="INTEGER" />
     <result column="exam_time" property="examTime" jdbcType="TIMESTAMP" />
-    <result column="hours" property="hours" jdbcType="INTEGER" />
+    <result column="hours" property="hours" jdbcType="REAL" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, mjr_id, crs_id, bat_id, exam_time, hours
@@ -27,7 +27,7 @@
       bat_id, exam_time, hours
       )
     values (#{id,jdbcType=INTEGER}, #{mjrId,jdbcType=INTEGER}, #{crsId,jdbcType=INTEGER}, 
-      #{batId,jdbcType=INTEGER}, #{examTime,jdbcType=TIMESTAMP}, #{hours,jdbcType=INTEGER}
+      #{batId,jdbcType=INTEGER}, #{examTime,jdbcType=TIMESTAMP}, #{hours,jdbcType=REAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.scuse.entity.Plan" >
@@ -69,7 +69,7 @@
         #{examTime,jdbcType=TIMESTAMP},
       </if>
       <if test="hours != null" >
-        #{hours,jdbcType=INTEGER},
+        #{hours,jdbcType=REAL},
       </if>
     </trim>
   </insert>
@@ -89,7 +89,7 @@
         exam_time = #{examTime,jdbcType=TIMESTAMP},
       </if>
       <if test="hours != null" >
-        hours = #{hours,jdbcType=INTEGER},
+        hours = #{hours,jdbcType=REAL},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -100,7 +100,7 @@
       crs_id = #{crsId,jdbcType=INTEGER},
       bat_id = #{batId,jdbcType=INTEGER},
       exam_time = #{examTime,jdbcType=TIMESTAMP},
-      hours = #{hours,jdbcType=INTEGER}
+      hours = #{hours,jdbcType=REAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

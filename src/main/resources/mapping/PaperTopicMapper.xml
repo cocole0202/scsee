@@ -3,15 +3,14 @@
 <mapper namespace="com.scuse.mapper.PaperTopicMapper" >
   <resultMap id="BaseResultMap" type="com.scuse.entity.PaperTopic" >
     <result column="paper_id" property="paperId" jdbcType="INTEGER" />
-    <result column="type_id" property="typeId" jdbcType="INTEGER" />
-    <result column="number" property="number" jdbcType="INTEGER" />
-    <result column="scores" property="scores" jdbcType="INTEGER" />
+    <result column="topic_id" property="topicId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="REAL" />
   </resultMap>
   <insert id="insert" parameterType="com.scuse.entity.PaperTopic" >
-    insert into PaperTopic (paper_id, type_id, number, 
-      scores)
-    values (#{paperId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
-      #{scores,jdbcType=INTEGER})
+    insert into PaperTopic (paper_id, topic_id, score
+      )
+    values (#{paperId,jdbcType=INTEGER}, #{topicId,jdbcType=INTEGER}, #{score,jdbcType=REAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.scuse.entity.PaperTopic" >
     insert into PaperTopic
@@ -19,28 +18,22 @@
       <if test="paperId != null" >
         paper_id,
       </if>
-      <if test="typeId != null" >
-        type_id,
+      <if test="topicId != null" >
+        topic_id,
       </if>
-      <if test="number != null" >
-        number,
-      </if>
-      <if test="scores != null" >
-        scores,
+      <if test="score != null" >
+        score,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="paperId != null" >
         #{paperId,jdbcType=INTEGER},
       </if>
-      <if test="typeId != null" >
-        #{typeId,jdbcType=INTEGER},
+      <if test="topicId != null" >
+        #{topicId,jdbcType=INTEGER},
       </if>
-      <if test="number != null" >
-        #{number,jdbcType=INTEGER},
-      </if>
-      <if test="scores != null" >
-        #{scores,jdbcType=INTEGER},
+      <if test="score != null" >
+        #{score,jdbcType=REAL},
       </if>
     </trim>
   </insert>
