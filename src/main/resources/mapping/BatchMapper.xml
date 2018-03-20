@@ -6,9 +6,16 @@
     <result column="exam_time" property="examTime" jdbcType="DATE" />
     <result column="cand_limit" property="candLimit" jdbcType="INTEGER" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     id, exam_time, cand_limit
   </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM Batch;
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
