@@ -3,9 +3,7 @@ package com.scuse.entity;
 public class TopicBank {
     private Integer id;
 
-    private Integer mjrId;
-
-    private Integer crsId;
+    private Integer typeId;
 
     private Integer number;
 
@@ -17,20 +15,12 @@ public class TopicBank {
         this.id = id;
     }
 
-    public Integer getMjrId() {
-        return mjrId;
+    public Integer getTypeId() {
+        return typeId;
     }
 
-    public void setMjrId(Integer mjrId) {
-        this.mjrId = mjrId;
-    }
-
-    public Integer getCrsId() {
-        return crsId;
-    }
-
-    public void setCrsId(Integer crsId) {
-        this.crsId = crsId;
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 
     public Integer getNumber() {

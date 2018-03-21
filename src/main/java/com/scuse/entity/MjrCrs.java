@@ -1,13 +1,11 @@
 package com.scuse.entity;
 
-public class TopicType {
+public class MjrCrs {
     private Integer id;
 
     private Integer mjrId;
 
     private Integer crsId;
-
-    private String name;
 
     public Integer getId() {
         return id;
@@ -31,13 +29,5 @@ public class TopicType {
 
     public void setCrsId(Integer crsId) {
         this.crsId = crsId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
     }
 }

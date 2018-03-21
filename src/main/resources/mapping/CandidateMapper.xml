@@ -3,7 +3,7 @@
 <mapper namespace="com.scuse.mapper.CandidateMapper" >
   <resultMap id="BaseResultMap" type="com.scuse.entity.Candidate" >
     <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="id_num" property="idNum" jdbcType="INTEGER" />
+    <result column="id_num" property="idNum" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="mail" property="mail" jdbcType="VARCHAR" />
@@ -43,7 +43,7 @@
       employer, work_addr, work_type, 
       exam_type, exam_major, regi_meth, 
       regi_loc)
-    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{gender,jdbcType=BIT}, #{token,jdbcType=CHAR}, #{expiredDate,jdbcType=DATE}, #{oldName,jdbcType=VARCHAR}, 
       #{ethnic,jdbcType=VARCHAR}, #{poliStatus,jdbcType=VARCHAR}, #{accLoc,jdbcType=VARCHAR}, 
@@ -150,7 +150,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="idNum != null" >
-        #{idNum,jdbcType=INTEGER},
+        #{idNum,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},

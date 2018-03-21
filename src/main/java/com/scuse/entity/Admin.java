@@ -5,7 +5,7 @@ import java.util.Date;
 public class Admin {
     private Integer id;
 
-    private Integer idNum;
+    private String idNum;
 
     private String name;
 
@@ -37,12 +37,12 @@ public class Admin {
         this.id = id;
     }
 
-    public Integer getIdNum() {
+    public String getIdNum() {
         return idNum;
     }
 
-    public void setIdNum(Integer idNum) {
-        this.idNum = idNum;
+    public void setIdNum(String idNum) {
+        this.idNum = idNum == null ? null : idNum.trim();
     }
 
     public String getName() {

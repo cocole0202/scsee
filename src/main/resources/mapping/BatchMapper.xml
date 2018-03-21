@@ -13,7 +13,7 @@
 
   <select id="getAll" resultMap="BaseResultMap">
     SELECT *
-    FROM Batch;
+    from Batch
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

@@ -42,35 +42,30 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
         
         <table tableName="Candidate" domainObjectName="Candidate"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-            
         </table>
         
         <table tableName="Admin" domainObjectName="Admin"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Major" domainObjectName="Major"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Book" domainObjectName="Book"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="BookBank" domainObjectName="BookBank"
@@ -85,7 +80,6 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Course" domainObjectName="Course"
@@ -99,108 +93,99 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Plan" domainObjectName="Plan"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Site" domainObjectName="Site"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Room" domainObjectName="Room"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="PlanSite" domainObjectName="PlanSite"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="TopicBank" domainObjectName="TopicBank"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="TopicType" domainObjectName="TopicType"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Topic" domainObjectName="Topic"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Paper" domainObjectName="Paper"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="PaperTopic" domainObjectName="PaperTopic"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Collect" domainObjectName="Collect"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="PaperTrack" domainObjectName="PaperTrack"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Ticket" domainObjectName="Ticket"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Score" domainObjectName="Score"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Violation" domainObjectName="Violation"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
         </table>
 
         <table tableName="Register" domainObjectName="Register"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="MjrCrs" domainObjectName="MjrCrs"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
