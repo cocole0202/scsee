@@ -12,6 +12,10 @@
   <sql id="Base_Column_List" >
     id, mjr_id, crs_id, bat_id, exam_time, hours
   </sql>
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM Plan;
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

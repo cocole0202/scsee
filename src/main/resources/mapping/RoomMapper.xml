@@ -10,6 +10,10 @@
   <sql id="Base_Column_List" >
     id, site_id, addr, cand_limit
   </sql>
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM Room;
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -20,6 +24,7 @@
     delete from Room
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.scuse.entity.Room" >
     insert into Room (id, site_id, addr, 
       cand_limit)

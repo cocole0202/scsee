@@ -9,6 +9,12 @@
   <sql id="Base_Column_List" >
     id, addr, cand_limit
   </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM Site;
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -20,8 +26,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.scuse.entity.Site" >
-    insert into Site (id, addr, cand_limit
-      )
+    insert into Site (id, addr, cand_limit)
     values (#{id,jdbcType=INTEGER}, #{addr,jdbcType=VARCHAR}, #{candLimit,jdbcType=INTEGER}
       )
   </insert>

@@ -13,6 +13,29 @@
     values (#{candId,jdbcType=INTEGER}, #{tickId,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}, 
       #{degree,jdbcType=INTEGER})
   </insert>
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM Violation;
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Violation
+    where cand_id = #{candId,jdbcType=INTEGER}
+  </delete>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Violation" >
+    update Violation
+    <set >
+      <if test="tickId != null" >
+        tick_id = #{tickId,jdbcType=INTEGER},
+      </if>
+      <if test="roomId != null" >
+        room_id = #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="degree != null" >
+        degree = #{degree,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cand_id = #{candId,jdbcType=INTEGER}
+  </update>
   <insert id="insertSelective" parameterType="com.scuse.entity.Violation" >
     insert into Violation
     <trim prefix="(" suffix=")" suffixOverrides="," >

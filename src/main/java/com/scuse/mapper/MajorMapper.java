@@ -2,6 +2,8 @@ package com.scuse.mapper;
 
 import com.scuse.entity.Major;
 
+import java.util.List;
+
 public interface MajorMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface MajorMapper {
     int updateByPrimaryKeySelective(Major record);
 
     int updateByPrimaryKey(Major record);
+
+    List<Major> getAll();
 }

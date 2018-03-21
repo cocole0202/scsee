@@ -10,6 +10,10 @@
   <sql id="Base_Column_List" >
     id, book_id, min_num, number
   </sql>
+  <select id="getAll" resultMap="BaseResultMap">
+    select *
+    from bookbank
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

@@ -29,6 +29,10 @@
     code_type, nature, start_time, start_doc, unified, main_clg, subject, end_time, end_doc, 
     end_info
   </sql>
+  <select id="getAll" resultMap="BaseResultMap">
+    select *
+    from Major
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

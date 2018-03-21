@@ -2,6 +2,8 @@ package com.scuse.mapper;
 
 import com.scuse.entity.Book;
 
+import java.util.List;
+
 public interface BookMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface BookMapper {
     int updateByPrimaryKeySelective(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    List<Book> getAll();
 }

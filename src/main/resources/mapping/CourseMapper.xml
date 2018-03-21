@@ -13,6 +13,10 @@
     <result column="outline" property="outline" jdbcType="VARCHAR" />
     <result column="book_id" property="bookId" jdbcType="INTEGER" />
   </resultMap>
+  <select id="getAll" resultMap="BaseResultMap">
+    select *
+    from course
+  </select>
   <sql id="Base_Column_List" >
     id, name, code, eng_name, credit, nature, exam_meth, paper_meth, outline, book_id
   </sql>

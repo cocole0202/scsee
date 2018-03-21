@@ -2,6 +2,8 @@ package com.scuse.mapper;
 
 import com.scuse.entity.Course;
 
+import java.util.List;
+
 public interface CourseMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+
+    List<Course> getAll();
 }
