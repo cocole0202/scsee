@@ -1,11 +1,15 @@
-package com.scuse.entity;
+package com.scuse.dto;
 
-public class Review {
+public class ReqReviewEntity {
     private Integer id;
 
     private Integer type;
 
-    public Review(int id, int type){
+    public ReqReviewEntity(){
+
+    }
+
+    public ReqReviewEntity(int id, int type){
         this.id = id;
         this.type = type;
     }

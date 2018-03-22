@@ -32,18 +32,21 @@
     <result column="regi_meth" property="regiMeth" jdbcType="VARCHAR" />
     <result column="regi_loc" property="regiLoc" jdbcType="VARCHAR" />
   </resultMap>
+  <sql id="Base_Column_List">
+    id, id_num, name, phone, mail, password, gender, token, expired_date, old_name, ethnic, poli_status, acc_loc, origin, cert_type, birthday, education, zip_code, mail_addr, recipient, career, employer, work_addr, work_type, exam_type, exam_major, regi_meth, regi_loc
+  </sql>
   <insert id="insert" parameterType="com.scuse.entity.Candidate" >
-    insert into Candidate (id, id_num, name, 
-      phone, mail, password, 
-      gender, token, expired_date, old_name, 
-      ethnic, poli_status, acc_loc, 
-      origin, cert_type, cert_num, 
-      birthday, education, zip_code, 
-      mail_addr, recipient, career, 
-      employer, work_addr, work_type, 
-      exam_type, exam_major, regi_meth, 
+    insert into Candidate (id, id_num, name,
+      phone, mail, password,
+      gender, token, expired_date, old_name,
+      ethnic, poli_status, acc_loc,
+      origin, cert_type, cert_num,
+      birthday, education, zip_code,
+      mail_addr, recipient, career,
+      employer, work_addr, work_type,
+      exam_type, exam_major, regi_meth,
       regi_loc)
-    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{idNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{gender,jdbcType=BIT}, #{token,jdbcType=CHAR}, #{expiredDate,jdbcType=DATE}, #{oldName,jdbcType=VARCHAR}, 
       #{ethnic,jdbcType=VARCHAR}, #{poliStatus,jdbcType=VARCHAR}, #{accLoc,jdbcType=VARCHAR}, 
@@ -235,4 +238,133 @@
       </if>
     </trim>
   </insert>
+  <select id="selectByToken" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from candidate
+    where token = #{token,jdbcType=CHAR}
+  </select>
+  <select id="selectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from candidate
+    where phone=#{phone,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByIdNum" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from candidate
+    where id_num = #{idNum,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByMail" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from candidate
+    where mail = #{mail,jdbcType=VARCHAR}
+  </select>
+  <select id="getMaxID" resultType="java.lang.Integer">
+    SELECT MAX(id)
+    FROM candidate
+  </select>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Candidate" >
+    update candidate
+    <set >
+      <if test="idNum != null" >
+        id_num = #{idNum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        mail = #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=CHAR},
+      </if>
+      <if test="expiredDate != null" >
+        expired_date = #{expiredDate,jdbcType=DATE},
+      </if>
+      <if test="oldName != null" >
+        old_name = #{oldName,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null" >
+        ethnic = #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="poliStatus != null" >
+        poli_status = #{poliStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="accLoc != null" >
+        acc_loc = #{accLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        cert_type = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNum != null" >
+        cert_num = #{certNum,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null" >
+        zip_code = #{zipCode,jdbcType=INTEGER},
+      </if>
+      <if test="mailAddr != null" >
+        mail_addr = #{mailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="recipient != null" >
+        recipient = #{recipient,jdbcType=VARCHAR},
+      </if>
+      <if test="career != null" >
+        career = #{career,jdbcType=VARCHAR},
+      </if>
+      <if test="employer != null" >
+        employer = #{employer,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null" >
+        work_addr = #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        work_type = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="examType != null" >
+        exam_type = #{examType,jdbcType=VARCHAR},
+      </if>
+      <if test="examMajor != null" >
+        exam_major = #{examMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="regiMeth != null" >
+        regi_meth = #{regiMeth,jdbcType=VARCHAR},
+      </if>
+      <if test="regiLoc != null" >
+        regi_loc = #{regiLoc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from candidate
+    where id=#{id,jdbcType=INTEGER}
+  </select>
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM candidate;
+  </select>
 </mapper>

@@ -1,36 +1,64 @@
-package com.scuse.entity;
+package com.scuse.dto;
 
 import java.util.Date;
 
-public class Candidate {
+public class ReqCandEntity {
     private Integer id;
+
     private String idNum;
+
     private String name;
+
     private String phone;
+
     private String mail;
+
     private String password;
+
     private Boolean gender;
+
     private String token;
+
     private Date expiredDate;
+
     private String oldName;
+
     private String ethnic;
+
     private String poliStatus;
+
     private String accLoc;
+
     private String origin;
+
     private String certType;
+
     private String certNum;
+
     private Date birthday;
+
     private String education;
+
     private Integer zipCode;
+
     private String mailAddr;
+
     private String recipient;
+
     private String career;
+
     private String employer;
+
     private String workAddr;
+
     private String workType;
+
     private String examType;
+
     private String examMajor;
+
     private String regiMeth;
+
     private String regiLoc;
 
     public Integer getId() {

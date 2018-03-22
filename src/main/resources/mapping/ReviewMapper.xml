@@ -28,4 +28,11 @@
       </if>
     </trim>
   </insert>
+  <select id="selectType" parameterType="com.scuse.entity.Review" resultMap="BaseResultMap">
+    select id,type from review where id=#{id,jdbcType=INTEGER} and type=#{type,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="com.scuse.entity.Review">
+    delete from review
+    WHERE id = #{id,jdbcType=INTEGER} AND type=#{type,jdbcType=INTEGER}
+  </delete>
 </mapper>
