@@ -36,12 +36,21 @@ public class MajorService {
     public Result addMajor(List<Major> majors){
         try{
             for(Major major: majors){
-                majorMapper.insertSelective(major);
+                //对于每个major，查询在数据库中是否有此项数据
+                Major findMajor = majorMapper.selectByPrimaryKey(major.getId());
+                if(findMajor!=null){
+                    //执行更新操作
+                    majorMapper.updateByPrimaryKeySelective(major);
+                }
+                else{
+                    //执行插入操作
+                    majorMapper.insertSelective(major);
+                }
             }
         }catch(Exception e){
             return OpResult.ADD_ERROR;
         }
-        return  OpResult.ADD_SUCCESS;
+        return  OpResult.ADD_UPD_SUCCESS;
     }
 
     /*
@@ -69,8 +78,25 @@ public class MajorService {
     @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=3600,rollbackFor=Exception.class)
     public Result updMajor(List<Major> majors){
         try{
-            for (Major major:majors){
-                majorMapper.updateByPrimaryKeySelective(major);
+            //先进行添加和更新操作，直接调用addMajor函数
+            addMajor(majors);
+            //获取数据库中所有专业
+            List<Major> allMajor_DB = majorMapper.getAll();
+            //比较数据库和传入列表，删除传入列表中没有的专业
+            for(Major major_DB: allMajor_DB){
+                boolean exist = false;
+                //在传入列表中查找
+                for(Major major_in: majors){
+                    if(major_DB.getId()==major_in.getId()){
+                        //该条目存在,不需要删除
+                        exist = true;
+                        break;
+                   }
+                }
+                if(exist==false){
+                    //该条目不存在，从数据库中删除
+                    majorMapper.deleteByPrimaryKey(major_DB.getId());
+                }
             }
         }catch (Exception e){
             return  OpResult.UPD_ERROR;

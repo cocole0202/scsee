@@ -1,7 +1,9 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.Review;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface ReviewMapper {
@@ -12,4 +14,10 @@ public interface ReviewMapper {
     Review selectType(Review review);
 
     int delete(Review review);
+
+    List<Review> selectById(int id);
+
+    List<Review> selectByType(int type);
+
+    List<Review> getAll();
 }

@@ -28,13 +28,22 @@ public class CourseService {
      */
     public Result addCourse(List<Course> courses){
         try{
-            for (Course course:courses){
-                courseMapper.insertSelective(course);
+            for(Course course: courses){
+                //对于每个major，查询在数据库中是否有此项数据
+                Course findMajor = courseMapper.selectByPrimaryKey(course.getId());
+                if(findMajor!=null){
+                    //执行更新操作
+                    courseMapper.updateByPrimaryKeySelective(course);
+                }
+                else{
+                    //执行插入操作
+                    courseMapper.insertSelective(course);
+                }
             }
-        }catch (Exception e){
+        }catch(Exception e){
             return OpResult.ADD_ERROR;
         }
-        return  OpResult.ADD_SUCCESS;
+        return  OpResult.ADD_UPD_SUCCESS;
     }
 
     /*
@@ -59,12 +68,29 @@ public class CourseService {
     * @return 返回更新操作的相关信息
      */
     public Result updCourse(List<Course> courses){
-        try {
-            for (Course course:courses){
-                courseMapper.updateByPrimaryKeySelective(course);
+        try{
+            //先进行添加和更新操作，直接调用addMajor函数
+            addCourse(courses);
+            //获取数据库中所有专业
+            List<Course> allCourse_DB = courseMapper.getAll();
+            //比较数据库和传入列表，删除传入列表中没有的专业
+            for(Course course_DB: allCourse_DB){
+                boolean exist = false;
+                //在传入列表中查找
+                for(Course course_in: courses){
+                    if(course_DB.getId()==course_in.getId()){
+                        //该条目存在,不需要删除
+                        exist = true;
+                        break;
+                    }
+                }
+                if(exist==false){
+                    //该条目不存在，从数据库中删除
+                    courseMapper.deleteByPrimaryKey(course_DB.getId());
+                }
             }
         }catch (Exception e){
-            return OpResult.UPD_ERROR;
+            return  OpResult.UPD_ERROR;
         }
         return OpResult.UPD_SUCCESS;
     }

@@ -160,40 +160,40 @@
       <if test="id != null" >
         id = #{id,jdbcType=INTEGER},
       </if>
-      <if test="idNum != null" >
+      <if test="idNum != null and id_num!=''" >
         id_num = #{idNum,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
+      <if test="name != null and name!=''" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null" >
+      <if test="phone != null and phone!=''" >
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="mail != null" >
+      <if test="mail != null and mail!=''" >
         mail = #{mail,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
+      <if test="password != null and password!=''" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null" >
+      <if test="gender != null and gender!=''" >
         gender = #{gender,jdbcType=BIT},
       </if>
-      <if test="token != null" >
+      <if test="token != null and token!=''" >
         token = #{token,jdbcType=CHAR},
       </if>
       <if test="expiredDate != null" >
         expired_date = #{expiredDate,jdbcType=DATE},
       </if>
-      <if test="jobNum != null" >
+      <if test="jobNum != null and jobNum!=''" >
         job_num = #{jobNum,jdbcType=VARCHAR},
       </if>
-      <if test="location != null" >
+      <if test="location != null and location!=''" >
         location = #{location,jdbcType=VARCHAR},
       </if>
-      <if test="employer != null" >
+      <if test="employer != null and employer!=''" >
         employer = #{employer,jdbcType=VARCHAR},
       </if>
-      <if test="docUrl != null" >
+      <if test="docUrl != null and employer!=''" >
         doc_url = #{docUrl,jdbcType=VARCHAR},
       </if>
     </set>

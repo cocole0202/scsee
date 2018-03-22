@@ -5,6 +5,10 @@ public class Review {
 
     private Integer type;
 
+    public Review(){
+
+    }
+
     public Review(int id, int type){
         this.id = id;
         this.type = type;

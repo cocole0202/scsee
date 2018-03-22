@@ -42,7 +42,7 @@ public class MajorController {
    * @return 返回更新操作错误信息
     */
     @RequestMapping(value = "/upd", method = RequestMethod.POST)
-    public Result updMajor(@RequestBody List<Major>majors){return majorService.updMajor(majors);}
+    public Result updMajor(@RequestBody List<Major> majors){return majorService.updMajor(majors);}
 
     /*
    * 获取Major

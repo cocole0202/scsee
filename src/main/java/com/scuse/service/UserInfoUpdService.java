@@ -63,9 +63,11 @@ public class UserInfoUpdService {
 
             //3.查找数据库中对应实体,并新建一个实体完成对数据库的修改
             if(type==1){ //身份是考生
+                System.out.println("考生");
                 Candidate candidate = candidateMapper.selectById(id);
                 if(candidate==null) //账户不存在
                     return OpResult.LOGIN_EMPTY_ERROR;
+
                 Candidate newCand = new Candidate();
                 newCand.setId(candidate.getId());
                 newCand.setToken(candidate.getToken());
@@ -74,7 +76,11 @@ public class UserInfoUpdService {
                 newCand.setName(updUserEntity.getName());
                 newCand.setPhone(updUserEntity.getPhone());
                 newCand.setMail(updUserEntity.getMail());
-                newCand.setPassword(userInfoTools.CreateMD5Code(updUserEntity.getPassword()));
+                if(updUserEntity.getPassword()!=null && updUserEntity.getPassword()!="")
+                    newCand.setPassword(userInfoTools.CreateMD5Code(updUserEntity.getPassword()));
+                else{
+                    newCand.setPassword(candidate.getPassword());
+                }
                 newCand.setGender(updUserEntity.getGender());
                 newCand.setOldName(updUserEntity.getOldName());
                 newCand.setEthnic(updUserEntity.getEthnic());
@@ -99,10 +105,16 @@ public class UserInfoUpdService {
 
                 //4.更新数据库
                 candidateMapper.updateByPrimaryKeySelective(newCand);
-                reviewMapper.insert(new Review(candidate.getId(),6));
+
+                //检查review表中是否已有记录
+                Review review = reviewMapper.selectType(new Review(candidate.getId(),6));
+                if(review==null)
+                    reviewMapper.insert(new Review(candidate.getId(),6));
                 return OpResult.UPD_SUCCESS;
             }
+
             else if(type==2){ //身份是管理员
+                System.out.println("管理员");
                 Admin admin = adminMapper.selectById(id);
                 if(admin==null)//账户不存在
                     return OpResult.LOGIN_EMPTY_ERROR;
@@ -114,16 +126,18 @@ public class UserInfoUpdService {
                 newAdmin.setName(updUserEntity.getName());
                 newAdmin.setPhone(updUserEntity.getPhone());
                 newAdmin.setMail(updUserEntity.getMail());
-                newAdmin.setPassword(updUserEntity.getPassword());
+                if(updUserEntity.getPassword()==null || updUserEntity.getPassword()=="")
+                    newAdmin.setPassword(admin.getPassword());
+                else
+                   newAdmin.setPassword(userInfoTools.CreateMD5Code(updUserEntity.getPassword()));
                 newAdmin.setGender(updUserEntity.getGender());
                 newAdmin.setJobNum(updUserEntity.getJobNum());
                 newAdmin.setLocation(updUserEntity.getLocation());
                 newAdmin.setEmployer(updUserEntity.getEmployer());
                 newAdmin.setDocUrl(updUserEntity.getDocUrl());
-
                 //4.更新数据库
                 adminMapper.updateByPrimaryKeySelective(newAdmin);
-                reviewMapper.insert(new Review(admin.getId(),6));
+                reviewMapper.insert(new Review(admin.getId(),8)); //8是管理员信息更改
                 return OpResult.UPD_SUCCESS;
             }
             else{ //出错

@@ -8,6 +8,7 @@ package com.scuse.dto;
 public class OpResult extends Result<Object> {
 
     public static final OpResult ADD_SUCCESS = new OpResult(new Error(0,"添加成功"));
+    public static final OpResult ADD_UPD_SUCCESS = new OpResult(new Error(0,"添加并更新成功"));
     public static final OpResult DEL_SUCCESS = new OpResult(new Error(0,"删除成功"));
     public static final OpResult UPD_SUCCESS = new OpResult(new Error(0,"更新成功"));
     public static final OpResult LOGIN_SUCCESS = new OpResult(new Error(0,"登录成功"));

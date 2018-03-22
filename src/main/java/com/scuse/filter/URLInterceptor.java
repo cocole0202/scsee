@@ -12,7 +12,6 @@ import com.scuse.entity.Review;
 import com.scuse.mapper.AdminMapper;
 import com.scuse.mapper.CandidateMapper;
 import com.scuse.mapper.ReviewMapper;
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,8 +28,6 @@ public class URLInterceptor implements HandlerInterceptor {
     private AdminMapper adminMapper;
     @Autowired
     private ReviewMapper reviewMapper;
-
-    private static final Logger logger = Logger.getLogger(URLInterceptor.class);
 
     public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {

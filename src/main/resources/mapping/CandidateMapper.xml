@@ -270,88 +270,88 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.scuse.entity.Candidate" >
     update candidate
     <set >
-      <if test="idNum != null" >
+      <if test="idNum != null and idNum!=''" >
         id_num = #{idNum,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
+      <if test="name != null and name!=''" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null" >
+      <if test="phone != null and phone!=''" >
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="mail != null" >
+      <if test="mail != null and mail!=''" >
         mail = #{mail,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
+      <if test="password != null and password!=''" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null" >
+      <if test="gender != null and gender!=''" >
         gender = #{gender,jdbcType=BIT},
       </if>
-      <if test="token != null" >
+      <if test="token != null and token!=''" >
         token = #{token,jdbcType=CHAR},
       </if>
       <if test="expiredDate != null" >
         expired_date = #{expiredDate,jdbcType=DATE},
       </if>
-      <if test="oldName != null" >
+      <if test="oldName != null and oldName!=''" >
         old_name = #{oldName,jdbcType=VARCHAR},
       </if>
-      <if test="ethnic != null" >
+      <if test="ethnic != null and ethnic!=''" >
         ethnic = #{ethnic,jdbcType=VARCHAR},
       </if>
-      <if test="poliStatus != null" >
+      <if test="poliStatus != null and poliStatus!=''" >
         poli_status = #{poliStatus,jdbcType=VARCHAR},
       </if>
-      <if test="accLoc != null" >
+      <if test="accLoc != null and accLoc!=''" >
         acc_loc = #{accLoc,jdbcType=VARCHAR},
       </if>
-      <if test="origin != null" >
+      <if test="origin != null and origin!=''" >
         origin = #{origin,jdbcType=VARCHAR},
       </if>
-      <if test="certType != null" >
+      <if test="certType != null and certType!=''" >
         cert_type = #{certType,jdbcType=VARCHAR},
       </if>
-      <if test="certNum != null" >
+      <if test="certNum != null and certNum!=''" >
         cert_num = #{certNum,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=DATE},
       </if>
-      <if test="education != null" >
+      <if test="education != null and education!=''" >
         education = #{education,jdbcType=VARCHAR},
       </if>
       <if test="zipCode != null" >
         zip_code = #{zipCode,jdbcType=INTEGER},
       </if>
-      <if test="mailAddr != null" >
+      <if test="mailAddr != null and mailAddr!=''" >
         mail_addr = #{mailAddr,jdbcType=VARCHAR},
       </if>
-      <if test="recipient != null" >
+      <if test="recipient != null recipient!=''" >
         recipient = #{recipient,jdbcType=VARCHAR},
       </if>
-      <if test="career != null" >
+      <if test="career != null and career!=''" >
         career = #{career,jdbcType=VARCHAR},
       </if>
-      <if test="employer != null" >
+      <if test="employer != null and employer!=''" >
         employer = #{employer,jdbcType=VARCHAR},
       </if>
-      <if test="workAddr != null" >
+      <if test="workAddr != null and wordAddr!=''" >
         work_addr = #{workAddr,jdbcType=VARCHAR},
       </if>
-      <if test="workType != null" >
+      <if test="workType != null and workType!=''" >
         work_type = #{workType,jdbcType=VARCHAR},
       </if>
-      <if test="examType != null" >
+      <if test="examType != null and examType!=''" >
         exam_type = #{examType,jdbcType=VARCHAR},
       </if>
-      <if test="examMajor != null" >
+      <if test="examMajor != null and examMajor!=''" >
         exam_major = #{examMajor,jdbcType=VARCHAR},
       </if>
-      <if test="regiMeth != null" >
+      <if test="regiMeth != null and regiMeth!=''" >
         regi_meth = #{regiMeth,jdbcType=VARCHAR},
       </if>
-      <if test="regiLoc != null" >
+      <if test="regiLoc != null and regiLoc!=''" >
         regi_loc = #{regiLoc,jdbcType=VARCHAR},
       </if>
     </set>
