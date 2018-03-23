@@ -1,7 +1,9 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.Paper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PaperMapper {
     int deleteByPrimaryKey(Integer id);
 

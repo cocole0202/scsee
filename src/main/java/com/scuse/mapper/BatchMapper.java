@@ -4,6 +4,7 @@ import com.scuse.entity.Batch;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface BatchMapper {
     int deleteByPrimaryKey(Integer id);

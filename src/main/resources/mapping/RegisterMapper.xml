@@ -44,4 +44,9 @@
       </if>
     </trim>
   </insert>
+  <select id="selectByCandId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select cand_id,pln_id,sit_id,status
+    from register
+    where cand_id = #{id,jdbcType=INTEGER}
+  </select>
 </mapper>

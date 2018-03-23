@@ -3,6 +3,7 @@ package com.scuse.controller;
 
 import com.scuse.dto.ReqReviewEntity;
 import com.scuse.dto.Result;
+import com.scuse.dto.ReviewGetEntity;
 import com.scuse.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,15 @@ public class ReviewController {
     @RequestMapping(value="/get/type/{type}",method=RequestMethod.GET)
     public Result reviewGetByType(@PathVariable("type") int type){
         return reviewService.reviewGetByType(type);
+    }
+
+    @RequestMapping(value="/get",method=RequestMethod.GET)
+    public Result reviewGetDetailInfo(){
+        return reviewService.reviewGetDetailInfo();
+    }
+
+    @RequestMapping(value="/upd",method=RequestMethod.POST)
+    public Result reviewUpd(@RequestBody ReviewGetEntity reviewGetEntity){
+        return reviewService.reviewUpd(reviewGetEntity);
     }
 }

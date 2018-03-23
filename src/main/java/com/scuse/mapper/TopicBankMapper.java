@@ -1,7 +1,9 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.TopicBank;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TopicBankMapper {
     int deleteByPrimaryKey(Integer id);
 

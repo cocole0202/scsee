@@ -1,9 +1,11 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.Course;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CourseMapper {
     int deleteByPrimaryKey(Integer id);
 

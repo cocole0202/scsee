@@ -19,5 +19,7 @@ public interface ReviewMapper {
 
     List<Review> selectByType(int type);
 
+    List<Review> selectByTypeWithTwoTypes(int type1,int type2);
+
     List<Review> getAll();
 }

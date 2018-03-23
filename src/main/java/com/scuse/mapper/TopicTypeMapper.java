@@ -1,7 +1,9 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.TopicType;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TopicTypeMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -57,7 +57,7 @@ public class BatchController {
      * @return 返回操作错误信息以及Batch列表
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public Result updBatch() {
+    public Result getBatch() {
         return batchService.getBatches();
     }
 }

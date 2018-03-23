@@ -1,9 +1,11 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.Major;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface MajorMapper {
     int deleteByPrimaryKey(Integer id);
 

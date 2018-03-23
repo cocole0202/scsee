@@ -48,4 +48,9 @@
   <select id="getAll" resultMap="BaseResultMap">
     select id,type from review
   </select>
+  <select id="selectByTypeWithTwoTypes" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id,type
+    from review
+    where type=#{arg0,jdbcType=INTEGER} or type=#{arg1,jdbcType=INTEGER}
+  </select>
 </mapper>

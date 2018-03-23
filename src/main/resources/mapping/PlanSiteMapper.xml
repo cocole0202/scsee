@@ -37,4 +37,9 @@
       </if>
     </trim>
   </insert>
+  <select id="selectByPlanId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select pln_id,site_id,cand_limit
+    from PlanSite
+    where pln_id=#{arg0,jdbcType=INTEGER}
+  </select>
 </mapper>

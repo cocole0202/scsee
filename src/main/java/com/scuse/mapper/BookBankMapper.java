@@ -1,9 +1,11 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.BookBank;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface BookBankMapper {
     int deleteByPrimaryKey(Integer id);
 

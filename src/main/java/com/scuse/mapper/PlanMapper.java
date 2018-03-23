@@ -2,9 +2,11 @@ package com.scuse.mapper;
 
 import com.scuse.entity.Plan;
 import com.scuse.entity.Violation;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface PlanMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -19,4 +21,6 @@ public interface PlanMapper {
     int updateByPrimaryKey(Plan record);
 
     List<Plan> getAll();
+
+    List<Plan> selectByBatchId(int batId);
 }

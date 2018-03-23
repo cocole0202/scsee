@@ -74,9 +74,13 @@ public class RegistService {
             afterAMounth.add(Calendar.DAY_OF_MONTH, 30);// 有效期30天
             Date expiredDate = afterAMounth.getTime();
 
-            int newID = adminMapper.getMaxID()+1;
-
             Admin newAdmin = new Admin();
+            int newID;
+            try{
+                newID = adminMapper.getMaxID()+1;
+            }catch (Exception e){
+                newID = 1;
+            }
             //自动分配最大的id
             newAdmin.setId(newID);
             newAdmin.setIdNum(reqAdminEntity.getIdNum());
@@ -94,9 +98,13 @@ public class RegistService {
 
             //插入数据库
             adminMapper.insertSelective(newAdmin);
-            reviewMapper.insert(new Review(newID,7));
+
+            //查询分配的ID
+            Admin getAdmin = adminMapper.selectByPhone(reqAdminEntity.getPhone());
+            reviewMapper.insert(new Review(getAdmin.getId(),7));
             return OpResult.REG_SUCCESS;
         }catch (Exception e) {
+            e.printStackTrace();
             return OpResult.REG_ERROR;
         }
     }
@@ -135,9 +143,13 @@ public class RegistService {
             afterAMounth.add(Calendar.DAY_OF_MONTH, 30);// 有效期30天
             Date expiredDate = afterAMounth.getTime();
 
-            int newID = candidateMapper.getMaxID()+1;
-
             Candidate newCandidate = new Candidate();
+            int newID;
+            try{
+                newID = candidateMapper.getMaxID()+1;
+            }catch (Exception e){
+                newID = 1;
+            }
             //自动分配最大的id
             newCandidate.setId(newID);
             newCandidate.setToken(token);
@@ -171,7 +183,9 @@ public class RegistService {
 
             //插入数据库
             candidateMapper.insertSelective(newCandidate);
-            reviewMapper.insertSelective(new Review(newID,1));
+            //查询分配的ID
+            Candidate getCand= candidateMapper.selectByPhone(reqCandEntity.getPhone());
+            reviewMapper.insertSelective(new Review(getCand.getId(),1));
             return OpResult.REG_SUCCESS;
         }catch (Exception e) {
             return OpResult.REG_ERROR;

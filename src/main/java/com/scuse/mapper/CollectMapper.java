@@ -1,7 +1,9 @@
 package com.scuse.mapper;
 
 import com.scuse.entity.Collect;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CollectMapper {
     int deleteByPrimaryKey(Integer id);
 
